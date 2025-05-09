@@ -1,6 +1,6 @@
 from mcp.server.fastmcp import FastMCP
-import leave_manager
-import sequential
+from mcps import leave_manager
+from mcps import sequential
 
 # Create a single FastMCP server
 mcp = FastMCP("CombinedMCP")
@@ -15,4 +15,4 @@ mcp.resource("greeting://{name}")(leave_manager.get_greeting)
 mcp.tool()(sequential.sequential_thinking)
 
 if __name__ == "__main__":
-    mcp.run(port=8000)
+    mcp.run()
