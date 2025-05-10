@@ -38,6 +38,7 @@ def is_valid_date(date_str: str) -> bool:
 # Tool: Check Leave Balance
 @mcp.tool()
 def get_leave_balance(employee_id: str) -> str:
+    print("Getting the leave balance....")
     """Check how many leave days are left for the employee"""
     data = employee_leaves.get(employee_id.strip())
     if data:
@@ -91,6 +92,8 @@ def get_greeting(name: str) -> str:
     return f"Hello, {name}! How can I assist you with leave management today?"
 
 def run(port: int = 8000):
+    import logging
+    logging.basicConfig(level=logging.INFO)
     mcp.run(port=port)
 
 if __name__ == "__main__":
